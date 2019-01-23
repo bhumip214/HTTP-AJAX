@@ -144,13 +144,38 @@ code {
 }
 
 .app-header {
-  padding: 20px;
+  padding: 20px 20px 10px;
   background: rgb(212, 78, 100);
 }
 .app-header h1 {
-  font-size: 25px;
+  font-size: 30px;
   font-weight: bold;
   color: white;
+}
+.nav-links {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+.link-home {
+  margin-right: 30px;
+  text-decoration: none;
+  color: white;
+  padding: 5px;
+}
+
+.link-friendForm {
+  margin-right: 30px;
+  text-decoration: none;
+  color: white;
+  padding: 5px;
+}
+
+.active-link {
+  background-color: white;
+  color: lightseagreen;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 .friends-form {
