@@ -187,30 +187,6 @@ h3 {
   border-radius: 5px;
 }
 
-/* ======================= form stlying =========================*/
-.friends-form {
-  padding: 40px;
-  background-color: lightgrey;
-}
-
-.friends-form h2 {
-  font-size: 16px;
-  padding-bottom: 10px;
-  font-weight: bold;
-}
-.friends-form input {
-  font-size: 14px;
-  margin-right: 10px;
-  padding: 5px;
-}
-.friends-form button {
-  font-size: 14px;
-  margin-right: 10px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  background-color: lightseagreen;
-}
-
 /* ======================= FriendsList stlying =========================*/
 .friends-list {
   padding: 20px;
@@ -237,13 +213,12 @@ h3 {
   flex: 1;
 }
 
-.delete-icon {
+.friend-list-icon {
   padding: 2px;
 }
-/* .friend-list .friend-name:hover h3 {
-  background-color: lightseagreen;
-  color: white;
-} */
+.delete-icon {
+  cursor: pointer;
+}
 
 /* ======================= FriendCard stlying =========================*/
 .friend-card {
@@ -258,17 +233,61 @@ h3 {
   padding: 10px;
 }
 
-.edit-icons {
+.friend-card-header h3 {
+  flex: 1;
+}
+
+.friend-card-icons {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   padding: 0 5px;
 }
 
+.edit-icon {
+  cursor: pointer;
+}
 .friend-card-detail {
   background-color: lightseagreen;
 }
 
 .friend-card p {
   padding: 10px;
+}
+
+/* ======================= form stlying =========================*/
+.friends-form {
+  padding: 40px;
+  background-color: lightgrey;
+}
+
+.friends-form h2 {
+  font-size: 16px;
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+
+.friends-form form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 300px;
+}
+
+.friends-form input {
+  font-size: 14px;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+.friends-form button {
+  font-size: 14px;
+  width: 100px;
+  margin: 5px auto;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: lightseagreen;
+}
+.friends-form button:hover {
+  color: white;
+  cursor: pointer;
 }

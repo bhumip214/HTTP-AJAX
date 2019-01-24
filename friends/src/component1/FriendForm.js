@@ -36,6 +36,22 @@ const FriendForm = props => {
           placeholder="Email"
           onChange={props.handleChanges}
         />
+
+        <input
+          type="text"
+          name="birthdate"
+          value={props.friend.birthdate}
+          placeholder="Birthdate"
+          onChange={props.handleChanges}
+        />
+
+        <input
+          type="text"
+          name="hobbies"
+          value={props.friend.hobbies}
+          placeholder="Hobbies"
+          onChange={props.handleChanges}
+        />
         <button type="submit">
           {props.isUpdating ? "Update Friend" : "Add Friend"}
         </button>

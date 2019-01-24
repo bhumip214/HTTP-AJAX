@@ -8,9 +8,10 @@ const FriendCard = props => {
       <div className="friend-card-header">
         <h3>{name}</h3>
 
-        <div className="edit-icons">
+        <div className="friend-card-icons">
           <img
             onClick={e => props.populateForm(e, id)}
+            className="edit-icon"
             src="https://img.icons8.com/office/16/000000/edit.png"
             alt="edit-icon"
           />

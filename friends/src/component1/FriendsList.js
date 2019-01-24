@@ -10,9 +10,10 @@ const FriendsList = props => {
             <Link to={`/friend/${friend.id}`} className="friend-name">
               <h3>{friend.name}</h3>
             </Link>
-            <div className="delete-icon">
+            <div className="friend-list-icon">
               <img
                 onClick={e => props.deleteFriend(e, friend.id)}
+                className="delete-icon"
                 src="https://img.icons8.com/office/16/000000/cancel.png"
                 alt="delete-icon"
               />
