@@ -8,9 +8,9 @@ const FriendCard = props => {
       <div className="friend-card-header">
         <h3>{name}</h3>
 
-        {/* <div className="edit-icons">
+        <div className="edit-icons">
           <img src="https://img.icons8.com/office/16/000000/edit.png" />
-        </div> */}
+        </div>
       </div>
       {showDetail && (
         <div className="friend-card-detail">

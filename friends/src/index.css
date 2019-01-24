@@ -206,9 +206,8 @@ h3 {
 .friends-form button {
   font-size: 14px;
   margin-right: 10px;
-  padding: 5px;
+  padding: 5px 10px;
   border-radius: 5px;
-  width: 80px;
   background-color: lightseagreen;
 }
 
@@ -259,12 +258,12 @@ h3 {
   padding: 10px;
 }
 
-/* .edit-icons {
+.edit-icons {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   padding: 0 5px;
-} */
+}
 
 .friend-card-detail {
   background-color: lightseagreen;
