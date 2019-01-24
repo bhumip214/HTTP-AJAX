@@ -3,12 +3,16 @@ import React from "react";
 const FriendForm = props => {
   const handleSubmit = e => {
     e.preventDefault();
-    props.addFriend();
+    if (props.isUpdating) {
+      props.updateFriend();
+    } else {
+      props.addFriend();
+    }
   };
 
   return (
     <div className="friends-form">
-      <h2>Add New Friends</h2>
+      <h2>{props.isUpdating ? "Update Friend" : "Add New Friend"}</h2>
 
       <form onSubmit={handleSubmit}>
         <input
@@ -30,10 +34,11 @@ const FriendForm = props => {
           name="email"
           value={props.friend.email}
           placeholder="Email"
-          placeholder="Name"
           onChange={props.handleChanges}
         />
-        <button type="submit">Add Friend</button>
+        <button type="submit">
+          {props.isUpdating ? "Update Friend" : "Add Friend"}
+        </button>
       </form>
     </div>
   );

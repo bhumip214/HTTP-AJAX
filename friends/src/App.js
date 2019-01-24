@@ -18,7 +18,8 @@ class App extends Component {
         name: "",
         age: "",
         email: ""
-      }
+      },
+      isUpdating: false
     };
   }
   componentDidMount() {
@@ -49,9 +50,51 @@ class App extends Component {
       .post(`${baseUrl}/friends`, this.state.friend)
       .then(res => {
         this.setState({ friends: res.data });
-        this.props.history.push("/shop");
+        this.props.history.push("/");
       })
       .catch(err => console.log(err));
+  };
+
+  deleteFriend = (e, id) => {
+    e.preventDefault();
+    axios
+      .delete(`${baseUrl}/friends/${id}`)
+      .then(res => {
+        this.setState({ friends: res.data });
+        this.props.history.push("/");
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  populateForm = (e, id) => {
+    e.preventDefault();
+    this.setState({
+      friend: this.state.friends.find(friend => friend.id === id),
+      isUpdating: true
+    });
+    this.props.history.push("/friend-form");
+  };
+
+  updateFriend = () => {
+    axios
+      .put(`${baseUrl}/friends/${this.state.friend.id}`, this.state.friend)
+      .then(res => {
+        this.setState({
+          friends: res.data,
+          isUpdating: false,
+          friend: {
+            name: "",
+            age: "",
+            email: ""
+          }
+        });
+        this.props.history.push("/");
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   render() {
@@ -69,11 +112,11 @@ class App extends Component {
               Home
             </NavLink>
             <NavLink
-              to="/add-new-friend"
+              to="/friend-form"
               activeClassName="active-link"
               className="link-friendForm"
             >
-              Form
+              {this.state.isUpdating ? "Update" : "Add"} Friend
             </NavLink>
           </div>
         </nav>
@@ -82,23 +125,35 @@ class App extends Component {
           exact
           path="/"
           render={props => (
-            <FriendsList {...props} friends={this.state.friends} />
-          )}
-        />
-        <Route
-          path="/add-new-friend"
-          render={props => (
-            <FriendForm
+            <FriendsList
               {...props}
-              addFriend={this.addFriend}
-              handleChanges={this.handleChanges}
-              friend={this.state.friend}
+              friends={this.state.friends}
+              deleteFriend={this.deleteFriend}
             />
           )}
         />
         <Route
           path="/friend/:id"
-          render={props => <Friend {...props} friends={this.state.friends} />}
+          render={props => (
+            <Friend
+              {...props}
+              friends={this.state.friends}
+              populateForm={this.populateForm}
+            />
+          )}
+        />
+        <Route
+          path="/friend-form"
+          render={props => (
+            <FriendForm
+              {...props}
+              addFriend={this.addFriend}
+              handleChanges={this.handleChanges}
+              isUpdating={this.state.isUpdating}
+              friend={this.state.friend}
+              updateFriend={this.updateFriend}
+            />
+          )}
         />
       </div>
     );

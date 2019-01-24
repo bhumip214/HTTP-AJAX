@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 import FriendCard from "./FriendCard";
 
@@ -11,7 +11,11 @@ const Friend = props => {
   }
   return (
     <div className="friends-list">
-      <FriendCard friend={friend} showDetail={true} />
+      <FriendCard
+        friend={friend}
+        showDetail={true}
+        populateForm={props.populateForm}
+      />
     </div>
   );
 };

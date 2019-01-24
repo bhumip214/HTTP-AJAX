@@ -1,7 +1,7 @@
 import React from "react";
 
 const FriendCard = props => {
-  const { name, age, email } = props.friend;
+  const { name, age, email, id } = props.friend;
   const showDetail = props.showDetail;
   return (
     <div className="friend-card">
@@ -9,7 +9,11 @@ const FriendCard = props => {
         <h3>{name}</h3>
 
         <div className="edit-icons">
-          <img src="https://img.icons8.com/office/16/000000/edit.png" />
+          <img
+            onClick={e => props.populateForm(e, id)}
+            src="https://img.icons8.com/office/16/000000/edit.png"
+            alt="edit-icon"
+          />
         </div>
       </div>
       {showDetail && (

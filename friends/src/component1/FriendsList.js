@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import FriendCard from "./FriendCard";
+import React from "react";
 import { Link } from "react-router-dom";
 
 const FriendsList = props => {
@@ -12,7 +11,11 @@ const FriendsList = props => {
               <h3>{friend.name}</h3>
             </Link>
             <div className="delete-icon">
-              <img src="https://img.icons8.com/office/16/000000/cancel.png" />
+              <img
+                onClick={e => props.deleteFriend(e, friend.id)}
+                src="https://img.icons8.com/office/16/000000/cancel.png"
+                alt="delete-icon"
+              />
             </div>
           </div>
         );
