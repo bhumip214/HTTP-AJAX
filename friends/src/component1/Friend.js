@@ -1,41 +1,19 @@
 import React, { Component } from "react";
-import axios from "axios";
+
 import FriendCard from "./FriendCard";
 
-class Friend extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      friend: null
-    };
+const Friend = props => {
+  const friend = props.friends.find(friend => {
+    return `${friend.id}` === props.match.params.id;
+  });
+  if (!friend) {
+    return <div>Loading Friend information...</div>;
   }
-
-  componentDidMount() {
-    const id = this.props.match.params.id;
-    this.fetchFriend(id);
-  }
-
-  fetchFriend = id => {
-    axios
-      .get(`http://localhost:5000/friends/${id}`)
-      .then(response => {
-        this.setState(() => ({ friend: response.data }));
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  };
-
-  render() {
-    if (!this.state.friend) {
-      return <div>Loading Friend information...</div>;
-    }
-    return (
-      <div className="save-wrapper">
-        <FriendCard friend={this.state.friend} />;
-      </div>
-    );
-  }
-}
+  return (
+    <div className="friends-list">
+      <FriendCard friend={friend} showDetail={true} />
+    </div>
+  );
+};
 
 export default Friend;

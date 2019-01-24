@@ -3,7 +3,7 @@ import React from "react";
 const FriendsForm = () => {
   return (
     <div className="friends-form">
-      <h3>Add New Friends</h3>
+      <h2>Add New Friends</h2>
       <form>
         <input type="text" placeholder="Name" />
         <input type="text" placeholder="Age" />

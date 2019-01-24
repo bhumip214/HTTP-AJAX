@@ -143,6 +143,15 @@ code {
     monospace;
 }
 
+h3 {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+  background-color: white;
+  color: black;
+}
+
+/* ======================= app stlying =========================*/
 .app-header {
   padding: 20px 20px 10px;
   background: rgb(212, 78, 100);
@@ -178,12 +187,13 @@ code {
   border-radius: 5px;
 }
 
+/* ======================= form stlying =========================*/
 .friends-form {
   padding: 40px;
   background-color: lightgrey;
 }
 
-.friends-form h3 {
+.friends-form h2 {
   font-size: 16px;
   padding-bottom: 10px;
   font-weight: bold;
@@ -202,30 +212,64 @@ code {
   background-color: lightseagreen;
 }
 
+/* ======================= FriendsList stlying =========================*/
 .friends-list {
   padding: 20px;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
+  align-items: center;
+}
+.friend-list {
+  display: flex;
+  border: 2px solid lightseagreen;
+  border-radius: 5px;
+  margin: 10px;
+  width: 300px;
 }
 
+.friend-list h3 {
+  flex: 1;
+  padding-left: 30px;
+}
+
+.friend-list .friend-name {
+  text-decoration: none;
+  flex: 1;
+}
+
+.delete-icon {
+  padding: 2px;
+}
+/* .friend-list .friend-name:hover h3 {
+  background-color: lightseagreen;
+  color: white;
+} */
+
+/* ======================= FriendCard stlying =========================*/
 .friend-card {
   border: 2px solid lightseagreen;
   border-radius: 5px;
-  background-color: lightseagreen;
-  margin: 20px;
+  margin: 10px;
   width: 300px;
-  height: 100px;
+}
+.friend-card-header {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
 }
 
-.friend-card h3 {
-  font-size: 18px;
-  font-weight: bold;
-  padding: 10px;
-  background-color: white;
-  margin-bottom: 10px;
+/* .edit-icons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 0 5px;
+} */
+
+.friend-card-detail {
+  background-color: lightseagreen;
 }
 
 .friend-card p {
-  margin-bottom: 10px;
+  padding: 10px;
 }

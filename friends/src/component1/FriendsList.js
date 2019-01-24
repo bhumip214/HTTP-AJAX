@@ -1,34 +1,24 @@
 import React, { Component } from "react";
-import axios from "axios";
 import FriendCard from "./FriendCard";
+import { Link } from "react-router-dom";
 
-class FriendsList extends Component {
-  constructor() {
-    super();
-    this.state = {
-      friends: []
-    };
-  }
-  componentDidMount() {
-    axios
-      .get("http://localhost:5000/friends")
-      .then(res => {
-        this.setState({ friends: res.data });
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
-
-  render() {
-    return (
-      <div className="friends-list">
-        {this.state.friends.map(friend => {
-          return <FriendCard key={friend.id} friend={friend} />;
-        })}
-      </div>
-    );
-  }
-}
+const FriendsList = props => {
+  return (
+    <div className="friends-list">
+      {props.friends.map(friend => {
+        return (
+          <div className="friend-list">
+            <Link to={`/friend/${friend.id}`} className="friend-name">
+              <h3>{friend.name}</h3>
+            </Link>
+            <div className="delete-icon">
+              <img src="https://img.icons8.com/office/16/000000/cancel.png" />
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 
 export default FriendsList;
